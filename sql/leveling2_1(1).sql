@@ -207,7 +207,7 @@ CREATE TABLE IF NOT EXISTS `tblfriends` (
   `userConnected` int NOT NULL,
   `userFriend` int NOT NULL,
   PRIMARY KEY (`idFriends`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 ;
 
 --
 -- Déchargement des données de la table `tblfriends`
@@ -426,7 +426,7 @@ CREATE TABLE IF NOT EXISTS `tblposts` (
   `nblikes` int NOT NULL,
   `nbcommentaires` int NOT NULL,
   PRIMARY KEY (`idPost`)
-) ENGINE=MyISAM AUTO_INCREMENT=78 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=78 DEFAULT CHARSET=utf8mb4 ;
 
 --
 -- Déchargement des données de la table `tblposts`
