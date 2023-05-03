@@ -1,5 +1,5 @@
 <?php
-include_once("./configbdd.php");
+include("./configbdd.php");
 namespace Models\Users;
 
 use \Models\Model;
