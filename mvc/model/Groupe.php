@@ -1,5 +1,5 @@
 <?php
-include_once("configbdd.php");
+include_once("./configbdd.php");
 namespace Models\Groupe;
 
 use \Models\Model;

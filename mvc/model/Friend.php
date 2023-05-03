@@ -1,6 +1,6 @@
 
 <?php
-include_once("configbdd.php");
+include_once("./configbdd.php");
 namespace Models\Friend;
 
 use PDO;
