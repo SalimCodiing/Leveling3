@@ -7,6 +7,8 @@ require_once('./mvc/controler/Games.php');
 require_once('./mvc/controler/Post.php');
 require_once('./mvc/controler/Friend.php');
 
+//require config
+require_once("./mvc/model/configbdd.php");
 // require model
 require_once('./mvc/model/User.php');
 require_once('./mvc/model/Games.php');
