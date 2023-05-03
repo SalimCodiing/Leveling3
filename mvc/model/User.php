@@ -6,7 +6,7 @@ namespace Models\Users;
 use \Models\Model;
 use PDO;
 
-include("./configbdd.php");
+require_once("./configbdd.php");
 
 
 class User

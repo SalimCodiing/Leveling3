@@ -5,7 +5,7 @@ namespace Models\Posts;
 use PDO;
 use \Models\Model;
 
-include("./configbdd.php");
+require_once("./configbdd.php");
 
 class Post
 {

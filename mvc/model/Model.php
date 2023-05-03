@@ -3,7 +3,7 @@ namespace Models;
 
 use PDO;
 
-include("./configbdd.php");
+require_once("./configbdd.php");
 
 
 class Model
