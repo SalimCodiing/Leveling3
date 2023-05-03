@@ -1,5 +1,6 @@
-<?php
 
+<?php
+include_once("configbdd.php");
 namespace Models\Friend;
 
 use PDO;
@@ -11,7 +12,7 @@ class Friend
     private $model;
     public function __construct()
     {
-        $this->pdo = new PDO('mysql:host=localhost;dbname=leveling2', 'root', '');
+        $this->pdo = new PDO('mysql:host='.$server.';dbname='.$bddname.'', $myusername, $mdp);
         $this->model = new Model('tblFriends');
     }
 

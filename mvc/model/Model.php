@@ -1,5 +1,5 @@
 <?php
-
+include_once("configbdd.php");
 namespace Models;
 
 use PDO;
@@ -12,7 +12,7 @@ class Model
    public function __construct($table)
    {
       $this->table = $table;
-      $this->pdo = new PDO('mysql:host=localhost;dbname=leveling2', 'root', '');
+      $this->pdo = new PDO('mysql:host='.$server.';dbname='.$bddname.'', $myusername, $mdp);
    }
 
    public function getAll()
