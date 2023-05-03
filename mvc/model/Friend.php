@@ -6,7 +6,7 @@ namespace Models\Friend;
 use PDO;
 use \Models\Model;
 
-require_once("./configbdd.php");
+
 
 class Friend
 {

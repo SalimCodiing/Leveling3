@@ -3,7 +3,7 @@ namespace Models;
 
 use PDO;
 
-require_once("./configbdd.php");
+
 
 
 class Model

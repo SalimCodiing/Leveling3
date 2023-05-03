@@ -5,8 +5,6 @@ use \Models\Model;
 
 use PDO;
 
-require_once("./configbdd.php");
-
 
 class Groupe
 {

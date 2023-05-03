@@ -4,7 +4,7 @@ namespace Models\Games;
 use PDO;
 use \Models\Model;
 
-require_once("./configbdd.php");
+
 
 
 class Games
