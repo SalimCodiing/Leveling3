@@ -12,7 +12,8 @@ class Games
    public function __construct()
    {
       $this->pdo = new PDO('mysql:host=localhost;dbname=leveling2', 'root', '');
-      $this->model = new Model('tblGames');
+      $this->model = new Model('tblgames');
+      $this->modelpc = new Model('tblgamespc');
    }
 
    public function getAll()
@@ -24,4 +25,15 @@ class Games
    {
       return $this->model->findById($id, $target);
    }
+
+   public function findByIdPc($id, $target)
+   {
+      return $this->model->findByIdPc($id, $target);
+   }
+
+   public function findByIdCs($id, $target)
+   {
+      return $this->model->findByIdCs($id, $target);
+   }
+
 }

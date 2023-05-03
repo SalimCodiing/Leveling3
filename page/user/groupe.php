@@ -1,10 +1,20 @@
 <?php
 $user = $controler->user->userModel->getUserProfil($_GET['user']);
-$groupes = $controler->user->userModel->getAllGroupe($user['idUser']);
-?>
+$groupes = $controler->groupe->groupeModel->getGroupbyUser($user['idUser']);
 
-<div class="flex justify-between">
-   <h1 class='title mb-4'>Groupe</h1>
+
+?>
+   
+
+
+
+
+   
+<div class="container-home p-6">
+
+<div class="font-bold w-full flex justify-center items-center h-9 bg-neutral text-primary rounded-md"><p>GROUPES</p></div>
+
+<div class="mt-2 text-justify">
 
    <!-- afficher uniquement si c'est le user connecté qui est sur son profil -->
    <?php if ($user['idUser'] === $_SESSION['id']) : ?>
@@ -25,78 +35,33 @@ $groupes = $controler->user->userModel->getAllGroupe($user['idUser']);
    <?php if (count($groupes) === 0) : ?>
       <div>
          <!-- ce bouton renvoie sur la modal qui est définit dans le fichier modal-profil -->
-         <label class='btn' for="modal-create-groupe">Créer un nouveau groupe</label>
+         <label class='btn bg-accent text-white border-accent hover:bg-[#1991FF] hover:text-white hover:border-[#1991FF] my-2' for="modal-create-groupe">Créer un nouveau groupe</label>
          <!-- ce bouton renvoie sur la modal qui est définit dans le fichier modal-profil -->
       </div>
    <?php endif; ?>
    <!-- Si l'utilisateur n'as pas de groupe -->
 <?php endif; ?>
+<br>
 <!-- afficher uniquement si c'est le user connecté -->
 
-<!-- Si l'utilisateur possède des groupes alors on affiche -->
-<?php if (count($groupes) !== 0) : ?>
-   <div class='flex flex-wrap gap-4 pb-4'>
-      <!-- Foreach pour afficher tous les groupes -->
-      <?php foreach ($groupes as $unGroupe) : ?>
+<!--- Faire le code pour afficher tous les groupes où le user y est-->
+<?php foreach($groupes as $groupe){
+   $allGroupes = $controler->groupe->groupeModel->findbyIdGroupe($groupe['idgroupe']);
+   foreach($allGroupes as $oneGroupe) : ?>
+   <a href="./?page=groupes&groupe=<?= $oneGroupe['idGroupe'] ?>&privacy=<?=$oneGroupe['groupePrivacy'] ?>" class="hover:scale-105 transition">
+      <div class="card w-96 shadow-xl image-full relative">
+         <figure><img src="data:<?= $oneGroupe['groupeTypeBanner'] ?>;base64,<?= base64_encode($oneGroupe['groupeBanner']) ?>" alt="Shoes" /></figure>
+            <div class="card-body">
+               <h2 class="card-title"><?= $oneGroupe['groupeName'] ?></h2>
+               <p><?= $oneGroupe['groupeDescription'] ?></p>
+            </div>
+            <br>
+      </div>
+   <?php endforeach ; }?>
 
-         <!-- Afficher les groupes uniquement les groupes publique si on est sur le profil d'un autre user -->
-         <?php if ($user['idUser'] === $_SESSION['id']) : ?>
-            <a href="./?page=profile&req=groupe&user=<?= $_GET['user'] ?>&groupeName=<?= $unGroupe['groupeName'] ?>" class="hover:scale-105 transition">
-               <div class="card w-96 shadow-xl image-full relative">
-                  <figure><img src="data:<?= $unGroupe['groupeTypeBanner'] ?>;base64,<?= base64_encode($unGroupe['groupeBanner']) ?>" alt="Shoes" /></figure>
-                  <div class="card-body">
-                     <h2 class="card-title"><?= $unGroupe['groupeName'] ?></h2>
-                     <p><?= $unGroupe['groupeDescription'] ?></p>
-                  </div>
 
-                  <!-- Afficher uniquement si le groupe est privé -->
-                  <?php if ($unGroupe['groupePrivacy'] === 'prive') : ?>
-                     <div class="tooltip absolute right-4 top-2 z-10" data-tip="Ce groupe est privé et ne sera pas visible pour les autres utilisateurs">
-                        <p>
-                           <i class="fa-solid fa-lock"></i>
-                        </p>
-                     </div>
-                  <?php endif; ?>
-                  <!-- Afficher uniquement si le groupe est privé -->
 
-               </div>
-               <!-- card pour un seul groupe -->
-            </a>
-         <?php elseif ($user['idUser'] !== $_SESSION['id'] && $unGroupe['groupePrivacy'] === 'publique') : ?>
-            <a href="./?page=profile&req=groupe&user=<?= $_GET['user'] ?>&groupeName=<?= $unGroupe['groupeName'] ?>" class="hover:scale-105 transition">
-               <div class="card w-96 shadow-xl image-full relative">
-                  <figure><img src="data:<?= $unGroupe['groupeTypeBanner'] ?>;base64,<?= base64_encode($unGroupe['groupeBanner']) ?>" alt="Shoes" /></figure>
-                  <div class="card-body">
-                     <h2 class="card-title"><?= $unGroupe['groupeName'] ?></h2>
-                     <p><?= $unGroupe['groupeDescription'] ?></p>
-                  </div>
 
-                  <!-- Afficher uniquement si le groupe est privé -->
-                  <?php if ($unGroupe['groupePrivacy'] === 'prive') : ?>
-                     <div class="tooltip absolute right-4 top-2 z-10" data-tip="Ce groupe est privé et ne sera pas visible pour les autres utilisateurs">
-                        <p>
-                           <i class="fa-solid fa-lock"></i>
-                        </p>
-                     </div>
-                  <?php endif; ?>
-                  <!-- Afficher uniquement si le groupe est privé -->
 
-               </div>
-               <!-- card pour un seul groupe -->
-            </a>
-         <?php endif; ?>
-         <!-- Afficher les groupes uniquement les groupes publique si on est sur le profil d'un autre user -->
 
-      <?php endforeach; ?>
-      <!-- Foreach pour afficher tous les groupes -->
 
-   </div>
-   <!-- Si l'utilisateur possède des groupes alors on affiche -->
-<?php endif; ?>
-
-<!-- Page des groupes -->
-<?php if (isset($_GET['groupeName'])) : ?>
-   <hr class='my-4 border-slate-700'>
-   <h1 class="text-4xl"><?= $_GET['groupeName'] ?></h1>
-<?php endif; ?>
-<!-- Page des groupes -->

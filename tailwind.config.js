@@ -9,6 +9,11 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'korium': ['T1 Korium'],
+        'poppins': ['Poppins'],
+        'toxi': ['Toxigenesis'],
+      },
       gridTemplateColumns: {
         // custom grille
         'layout': '300px 1fr',
@@ -22,6 +27,9 @@ module.exports = {
       },
       maxWidth: {
         web: '1920px'
+      },
+      fontFamily: {
+        'toxigenesis' :['toxigenesis', 'sans-serif']
       }
     },
   },
@@ -30,10 +38,11 @@ module.exports = {
     themes: [
       {
         mytheme: {
-          primary: '#1f1f26',
-          secondary: '#242531',
-          neutral: '#b4b7be', // titre
-          accent: '#525259' // paragraphe
+          accent: '#1991FF',
+          neutral: '#2a2b2f',
+          primary: '#AFAFAF',
+          secondary: 'white',
+          lightgray: '#E9E9E9'
         }
       }
     ]
