@@ -1,8 +1,8 @@
 
 <?php
-include("./configbdd.php");
-namespace Models\Friend;
 
+namespace Models\Friend;
+include("./configbdd.php");
 use PDO;
 use \Models\Model;
 

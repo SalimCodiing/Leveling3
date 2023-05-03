@@ -1,6 +1,7 @@
 <?php
-include("./configbdd.php");
+
 namespace Models\Posts;
+include("./configbdd.php");
 
 use PDO;
 use \Models\Model;

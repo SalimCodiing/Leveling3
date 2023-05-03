@@ -1,6 +1,8 @@
 <?php
-include("./configbdd.php");
+
 namespace Models\Users;
+
+include("./configbdd.php");
 
 use \Models\Model;
 use PDO;

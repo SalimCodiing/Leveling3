@@ -1,6 +1,6 @@
 <?php
-include("./configbdd.php");
 namespace Models\Groupe;
+include("./configbdd.php");
 
 use \Models\Model;
 

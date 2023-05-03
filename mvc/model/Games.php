@@ -1,6 +1,6 @@
 <?php
-include("./configbdd.php");
 namespace Models\Games;
+include("./configbdd.php");
 
 use PDO;
 use \Models\Model;
