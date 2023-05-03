@@ -2,9 +2,11 @@
 <?php
 
 namespace Models\Friend;
-include("./configbdd.php");
+
 use PDO;
 use \Models\Model;
+
+include("./configbdd.php");
 
 class Friend
 {

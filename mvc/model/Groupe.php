@@ -1,10 +1,12 @@
 <?php
 namespace Models\Groupe;
-include("./configbdd.php");
 
 use \Models\Model;
 
 use PDO;
+
+include("./configbdd.php");
+
 
 class Groupe
 {

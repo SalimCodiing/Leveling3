@@ -1,10 +1,11 @@
 <?php
 
 namespace Models\Posts;
-include("./configbdd.php");
 
 use PDO;
 use \Models\Model;
+
+include("./configbdd.php");
 
 class Post
 {

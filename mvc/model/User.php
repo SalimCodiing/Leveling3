@@ -2,10 +2,12 @@
 
 namespace Models\Users;
 
-include("./configbdd.php");
 
 use \Models\Model;
 use PDO;
+
+include("./configbdd.php");
+
 
 class User
 {

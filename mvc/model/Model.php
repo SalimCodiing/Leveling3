@@ -1,8 +1,10 @@
 <?php
 namespace Models;
-include("./configbdd.php");
 
 use PDO;
+
+include("./configbdd.php");
+
 
 class Model
 {

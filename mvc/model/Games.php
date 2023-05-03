@@ -1,9 +1,11 @@
 <?php
 namespace Models\Games;
-include("./configbdd.php");
 
 use PDO;
 use \Models\Model;
+
+include("./configbdd.php");
+
 
 class Games
 {
